@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Newroz Technology Web Automation Task" parallel="tests" thread-count="7">
+    <test name="Login Functionality Test">
+        <classes>
+            <class name="tests.LoginFunctionalityTest"/>
+        </classes>
+    </test>
+    <test name="Add to Cart Functionality">
+        <classes>
+            <class name="tests.AddToCartFunctionalityTest"/>
+        </classes>
+    </test>
+    <test name="Checkout Process Validation">
+        <classes>
+            <class name="tests.CheckoutProcessValidationTest"/>
+        </classes>
+    </test>
+    <test name="Sorting Products Validation">
+        <classes>
+            <class name="tests.SortingProductsValidationTest"/>
+        </classes>
+    </test>
+    <test name="Logout Functionality Test">
+        <classes>
+            <class name="tests.LogoutFunctionalityTest"/>
+        </classes>
+    </test>
+    <test name="Locked-Out User Validation">
+        <classes>
+            <class name="tests.LockedOutUserValidationTest"/>
+        </classes>
+    </test>
+    <test name="Cart Badge Count Validation">
+        <classes>
+            <class name="tests.CartBadgeCountValidationTest"/>
+        </classes>
+    </test>
+</suite>
