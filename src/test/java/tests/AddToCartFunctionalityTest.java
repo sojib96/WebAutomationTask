@@ -9,7 +9,7 @@ public class AddToCartFunctionalityTest extends BaseTest {
     @Test
     public void test() {
         int addToCartCount = 2;
-        utils.LoginUtils.login(driver, utils.SettingsTestData.getValidUserData().getUsername(),
+        login(utils.SettingsTestData.getValidUserData().getUsername(),
                 utils.SettingsTestData.getValidUserData().getPassword());
 
         // EDGE CASE START

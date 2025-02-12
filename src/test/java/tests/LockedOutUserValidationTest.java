@@ -7,7 +7,7 @@ public class LockedOutUserValidationTest extends BaseTest {
 
     @Test
     public void test() {
-        utils.LoginUtils.login(driver, utils.SettingsTestData.getLockedUserData().getUsername(),
+        login(utils.SettingsTestData.getLockedUserData().getUsername(),
                 utils.SettingsTestData.getLockedUserData().getPassword());
         Assert.assertTrue(loginPage.getErrorMessage().contains("Sorry, this user has been locked out."),
                 "Error message mismatch: Expected message not found in actual error message.");

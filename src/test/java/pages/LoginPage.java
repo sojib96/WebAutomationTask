@@ -35,7 +35,7 @@ public class LoginPage extends BasePage {
     }
 
     @Step("Verifying successful logout by checking if the login page is displayed with the login button")
-    public boolean isLoginButtonDisplayed() {
+    public boolean isLoginPageDisplayed() {
         return waitForElement(loginButton).isDisplayed();
     }
 

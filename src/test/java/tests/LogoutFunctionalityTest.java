@@ -9,12 +9,10 @@ public class LogoutFunctionalityTest extends BaseTest{
 
     @Test
     public void test() {
-        utils.LoginUtils.login(driver, utils.SettingsTestData.getValidUserData().getUsername(),
+        login(utils.SettingsTestData.getValidUserData().getUsername(),
                 utils.SettingsTestData.getValidUserData().getPassword());
-
         productPage.clickHamburgerMenu();
         productPage.clickLogoutButton();
-        Assert.assertTrue(loginPage.isLoginButtonDisplayed(),
-                "Logout failed: Login button is not displayed.");
+        Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Logout failed: Login page is not displayed.");
     }
 }

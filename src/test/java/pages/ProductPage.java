@@ -21,14 +21,9 @@ public class ProductPage extends BasePage {
         super(driver);
     }
 
-    @Step("Fetching the title of the product page to verify successful login")
-    public String getPageTitle() {
-        return waitForElement(pageTitle).getText();
-    }
-
-    @Step("Fetching the list of product titles displayed on the Product page to verify")
-    public List<String> getProductsTitle() {
-        return getElementsText(productsTitle);
+    @Step("Checking the product page is displayed to verify successful login")
+    public boolean isProductPageDisplayed() {
+        return waitForElement(pageTitle).isDisplayed();
     }
 
     public void addProductsToCartOrRemove(int count, boolean isAdding) {
@@ -37,24 +32,19 @@ public class ProductPage extends BasePage {
         clickElements(addToCartOrRemoveButtons, count);
     }
 
+    @Step("Fetching the current cart badge count displayed on the cart icon to verify")
+    public String getCartBadgeCount() {
+        return waitForElement(cartIcon).getText();
+    }
+
     @Step("Clicking on the cart icon to navigate to the cart page")
     public void clickCartIcon() {
         clickElement(cartIcon);
     }
 
-    @Step("Clicking on the hamburger menu to open navigation options")
-    public void clickHamburgerMenu() {
-        clickElement(hamburgerMenu);
-    }
-
-    @Step("Clicking on the Logout button to log out of the application")
-    public void clickLogoutButton() {
-        clickElement(logoutButton);
-    }
-
-    @Step("Fetching the current cart badge count displayed on the cart icon to verify")
-    public String getCartBadgeCount() {
-        return waitForElement(cartIcon).getText();
+    @Step("Fetching the list of product titles displayed on the Product page to verify")
+    public List<String> getProductsTitle() {
+        return getElementsText(productsTitle);
     }
 
     @Step("Sorting products using the option: {0}")
@@ -65,5 +55,15 @@ public class ProductPage extends BasePage {
     @Step("Fetching and converting the list of product prices to double values for verifying expected sorting")
     public List<Double> getProductPrices() {
         return utils.DataUtils.convertPricesToDouble(getElementsText(productPrices));
+    }
+
+    @Step("Clicking on the hamburger menu to open navigation options")
+    public void clickHamburgerMenu() {
+        clickElement(hamburgerMenu);
+    }
+
+    @Step("Clicking on the Logout button to log out of the application")
+    public void clickLogoutButton() {
+        clickElement(logoutButton);
     }
 }

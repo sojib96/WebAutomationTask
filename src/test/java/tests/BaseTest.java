@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import pages.*;
 
 
-public class BaseTest {
+public abstract class BaseTest {
     protected WebDriver driver;
     protected LoginPage loginPage;
     protected ProductPage productPage;
@@ -19,7 +19,6 @@ public class BaseTest {
     public void setUp() {
         driver = utils.DriverManager.getDriver();
         driver.get(utils.SettingsTestData.getEnvData().getHost());
-
         loginPage = new LoginPage(driver);
         productPage = new ProductPage(driver);
         cartPage = new CartPage(driver);
@@ -31,5 +30,11 @@ public class BaseTest {
     @AfterMethod
     public void tearDown() {
         utils.DriverManager.quitDriver();
+    }
+
+    protected void login(String username, String password) {
+        loginPage.enterUsername(username);
+        loginPage.enterPassword(password);
+        loginPage.clickLoginButton();
     }
 }

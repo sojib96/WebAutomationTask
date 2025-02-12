@@ -7,7 +7,7 @@ public class CheckoutProcessValidationTest extends BaseTest {
 
     @Test
     public void test() {
-        utils.LoginUtils.login(driver, utils.SettingsTestData.getValidUserData().getUsername(),
+        login(utils.SettingsTestData.getValidUserData().getUsername(),
                 utils.SettingsTestData.getValidUserData().getPassword());
         productPage.addProductsToCartOrRemove(1, true);
         productPage.clickCartIcon();

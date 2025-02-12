@@ -49,7 +49,7 @@ src/
     -   `models/`: Data models representing various entities (e.g., `ValidUserData`, `CheckoutData`).
     -   `pages/`: Page object classes representing different pages of the web application (e.g., `LoginPage`, `ProductPage`).
     -   `tests/`: Test classes containing TestNG test methods (e.g., `LoginFunctionalityTest`, `AddToCartFunctionalityTest`).
-    -   `utils/`: Utility classes for common tasks (e.g., `DriverManager`, `LoginUtils`, `DataUtils`).
+    -   `utils/`: Utility classes for common tasks (e.g., `DriverManager`, `DataUtils`).
 -   `src/test/resources`: Test resources such as test data, environment configurations, and the TestNG XML configuration file.
     -   `environment/`: Environment-specific configuration files (e.g., `prod.json`).
     -   `testdata/`: JSON files containing test data (e.g., `validUserData.json`, `checkoutData.json`).
@@ -63,7 +63,7 @@ src/
 -   **Page Object Model (POM):** The project implements the Page Object Model design pattern, which enhances code maintainability and reusability. Each page of the web application is represented by a corresponding page object class (e.g., [`LoginPage`](src/test/java/pages/LoginPage.java), [`ProductPage`](src/test/java/pages/ProductPage.java)). This approach encapsulates the page's elements and actions, making the tests more readable and easier to update when the UI changes. Additionally, all test cases are organized within a dedicated test package, with each test implemented in a separate class to ensure better test structure and modularity ([`LoginFunctionalityTest`](src/test/java/tests/LoginFunctionalityTest.java)).
 -   **Abstraction and Reusability:** The project includes a [`BasePage`](src/test/java/pages/BasePage.java) class that provides common methods for interacting with web elements. This class is extended by all page object classes, promoting code reuse and reducing redundancy.
 -   **WebDriver Management:** The [`DriverManager`](src/test/java/utils/DriverManager.java) class manages the WebDriver instance, ensuring that it is properly initialized and closed after each test. It is designed to be thread-safe by implementing ThreadLocal, allowing parallel execution without conflicts. Additionally, it supports cross-browser testing, enabling test execution on Chrome, Firefox, and Edge while managing browser-specific configurations and capabilities.
--   **Utility Classes:** The project includes several utility classes (e.g., [`LoginUtils`](src/test/java/utils/LoginUtils.java), [`DataUtils`](src/test/java/utils/DataUtils.java), [`SortingUtils`](src/test/java/utils/SortingUtils.java)) that provide common functionality used across the test suite.
+-   **Utility Classes:** The project includes several utility classes (e.g.,[`DataUtils`](src/test/java/utils/DataUtils.java), [`SortingUtils`](src/test/java/utils/SortingUtils.java)) that provide common functionality used across the test suite.
 -   **Data-Driven Testing (DDT):** The project utilizes data-driven testing to execute the same test scenarios with different sets of data. This is achieved by reading test data from JSON files (e.g., [`validUserData.json`](src/test/resources/testdata/validUserData.json), [`checkoutData.json`](src/test/resources/testdata/checkoutData.json)) and passing it to the test methods. This approach increases test coverage and reduces code duplication.
 -   **Logging:** The project uses Log4j2 for logging test execution details. This helps in debugging and analyzing test results. The logging configuration is defined in [`log4j2.xml`](src/test/resources/log4j2.xml).
 -   **Parallel Test Execution:** The TestNG configuration file ([`testng.xml`](src/test/resources/testng.xml)) is set up to run tests in parallel, reducing the overall test execution time.
@@ -105,7 +105,7 @@ Before running the project, ensure you have the following installed:
     ```bash
     mvn test -Dbrowser=chrome
    ```
-   In case you want to run the tests in another browser, replace `chrome` with `firefox` or `edge`.
+   In case you want to run the tests in another browser, replace `chrome` with `firefox` or `edge`. By default, it will run in the `Chrome` browser if you do not specify anything.
 
 ### Generating the Allure Report
 
